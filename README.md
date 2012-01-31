@@ -2,6 +2,11 @@
 
 A tiny little plugin to flip through thumbnail images as you roll your mouse right to left over them.
 
+### Options
+
+- `selector`: a css-style selector used to find the gallery elements. 
+              Default is `'img'`
+
 ### Usage
 
     <script src="jquery.js" type="text/javascript"></script>
