@@ -1,3 +1,9 @@
+/**
+ * jQuery Mouseover Gallery
+ * Copyright 2011 Dan Drinkard, <dan.drinkard@gmail.com>
+ * MIT License
+ */
+
 (function($){
 
   $.fn.mouseoverGallery = function(opts){
