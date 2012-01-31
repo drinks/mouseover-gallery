@@ -1,29 +1,43 @@
 (function($){
 
-  $.fn.mouseoverGallery = function(){
+  $.fn.mouseoverGallery = function(opts){
     var el = $(this)
-      , imgs = this.find('img');
+      , els
+      , options = {}
+      , defaults = {
+            'selector': 'img'
+        }
+      , init = function(){
+          options = $.extend(options, defaults, opts);
+          els = el.find(options.selector);
+          if(!els.length){
+            window.console && console.log && console.log(el.selector + ': no children matching selector "' + options.selector + '" found, aborting.');
+            return el;
+          }
+          els.eq(0).siblings().hide();
+          el.hover(function(evt){
+            el.data('active', true);
+          }, function(evt){
+            el.data('active', false)
+          });
+          el.mousemove(handler);
+          return el;
+        }
+      , handler = function(evt){
+          if($(this).data('active')){
+            var mouseX = evt.pageX
+              , elX = $(this).offset().left
+              , elW = $(this).width()
+              , size = els.length
+              , imgToShow = Math.floor(((mouseX - elX) / elW) * size)
+              ;
 
-    imgs.eq(0).siblings().hide();
+              els.eq(imgToShow).show().siblings().hide();
+          }
+        }
+      ;
 
-    el.hover(function(evt){
-      $(this).data('active', true);
-    }, function(evt){
-      $(this).data('active', false)
-    });
-    el.mousemove(function(evt){
-      if($(this).data('active')){
-        var mouseX = evt.pageX
-          , elX = $(this).offset().left
-          , elW = $(this).width()
-          , size = imgs.length
-          , imgToShow = Math.floor(((mouseX - elX) / elW) * size)
-          ;
-
-          imgs.eq(imgToShow).show().siblings().hide();
-      }
-    });
-    return el;
+    return init();
   }
 
 })(jQuery);
