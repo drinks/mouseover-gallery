@@ -18,7 +18,8 @@
           el.hover(function(evt){
             el.data('active', true);
           }, function(evt){
-            el.data('active', false)
+            el.data('active', false);
+            els.eq(0).show().siblings().hide();
           });
           el.mousemove(handler);
           return el;
