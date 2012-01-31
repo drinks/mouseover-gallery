@@ -25,10 +25,10 @@
           return el;
         }
       , handler = function(evt){
-          if($(this).data('active')){
+          if(el.data('active')){
             var mouseX = evt.pageX
-              , elX = $(this).offset().left
-              , elW = $(this).width()
+              , elX = el.offset().left
+              , elW = el.width()
               , size = els.length
               , imgToShow = Math.floor(((mouseX - elX) / elW) * size)
               ;
