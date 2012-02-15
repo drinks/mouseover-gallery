@@ -16,8 +16,8 @@
       , init = function(){
           options = $.extend(options, defaults, opts);
           els = el.find(options.selector);
-          if(!els.length){
-            window.console && console.log && console.log(el.selector + ': no children matching selector "' + options.selector + '" found, aborting.');
+          if(!els.length > 1){
+            window.console && console.log && console.log(el.selector + ': not enough children matching selector "' + options.selector + '" found, aborting.');
             return el;
           }
           els.eq(0).siblings().hide();
