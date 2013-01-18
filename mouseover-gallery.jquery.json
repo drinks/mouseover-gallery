@@ -1,0 +1,20 @@
+{
+  "name": "mouseover-gallery",
+  "title": "jQuery Mouseover Gallery",
+  "description": "A tiny little plugin to flip through thumbnail images as you roll your mouse right to left over them.",
+  "keywords": ["hover", "cycle", "carousel", "image", "mousemove"],
+  "version": "1.0.0",
+  "author": {
+    "name": "Dan Drinkard"
+  },
+  "licenses": {
+    "type": "WTFPL",
+    "url": "http://www.wtfpl.net/txt/copying/"
+  },
+  "bugs": "https://github.com/drinks/mouseover-gallery/issues",
+  "homepage": "https://github.com/drinks/mouseover-gallery",
+  "docs": "https://github.com/drinks/mouseover-gallery",
+  "dependencies": {
+    "jquery": ">=1.5"
+  }
+}
